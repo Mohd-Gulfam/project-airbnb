@@ -5,35 +5,11 @@ body{
     min-height: 100vh;
 }
 
-/* navbar */
-.container{
-    flex: 1;
-}
-.navbar-collapse {
-    width: 100%;
-}
 
-
-.navbar{
-   
-    height: 4rem !important;
-    background-color: #ebebeb !important;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-}
-
-.compass-icon {
-    font-size: 2rem !important;   /* change size here */
-    color: #ff385c;    /* optional color */
-    
-}
 
 .nav-link{
     color: #222222 !important;
-}
+} */
 
 
 /* footer */

@@ -1,63 +1,148 @@
 <style>
-  .btn-search{
-    background-color: #ff385c !important;
-    color: white !important;
-    border-radius: 25px !important;
-    padding: 0 1rem 0 1rem !important;
+/* Navbar */
+.navbar {
+  background-color: #ebebeb ;
+  border-bottom: 1px solid #ddd;
+}
 
-  }
-  .btn-search:hover{
-    background-color: #ff385c !important;
-    color: white !important;
-    
-  }
-  .btn-search i{
-    display: inline !important;
-    color: white !important;
-  }
-  .search-input{
-    border-radius: 25px !important;
-    width: 200px !important;
-    padding: 0.5rem 3rem 0.5rem 3rem !important;
-    font-size: 0.9rem !important;
-  }
- 
+/* Logo */
+.navbar-brand i {
+  color: #ff385c;
+  font-size: 1.5rem;
+}
+
+/* Search bar */
+.search-input {
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+}
+
+/* Search Button */
+.btn-search {
+  background-color: #ff385c;
+  color: white;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+}
+
+.btn-search:hover {
+  background-color: #ff385c;
+  color: white;
+}
+
+/* Right Links */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* Mobile Fix */
+@media(max-width:992px){
+
+.navbar-collapse{
+  padding-top:10px;
+}
+
+.search-input{
+  width:100%;
+  margin-bottom:10px;
+}
+
+.btn-search{
+  width:100%;
+}
+
+}
 </style>
 
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass compass-icon " ></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Toggle -->
+    <button 
+    class="navbar-toggler" 
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">All Listings</a>
-        
-      </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search" action="/listings/search" method="GET">
-          
-          <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search" name="location">
-          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-        </form>
-      </div>
 
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your Home</a>
+      <!-- Left -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">All Listings</a>
+        </li>
+      </ul>
+
+      <!-- Center Search -->
+      <form 
+      class="d-flex flex-column flex-lg-row mx-lg-auto my-2 my-lg-0"
+      action="/listings/search"
+      method="GET">
+
+        <input
+        class="form-control search-input me-lg-2"
+        type="search"
+        placeholder="Search destinations"
+        name="location">
+
+        <button class="btn btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+      </form>
+
+      <!-- Right -->
+      <ul class="navbar-nav ms-lg-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">
+            Airbnb your Home
+          </a>
+        </li>
+
         <% if(!currentUser){ %>
-          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } else { %>  
-          
-          <a class="nav-link" href="/users/profile"><i class="fa-solid fa-user"></i> <%= currentUser.username %></a>
-          <a class="nav-link" href="/logout">Logout</a>
-          
-        <% } %>  
 
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+
+        <% } else { %>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/users/profile">
+            <i class="fa-solid fa-user"></i>
+            <%= currentUser.username %>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+
+        <% } %>
+
+      </ul>
+
     </div>
+
   </div>
 </nav>

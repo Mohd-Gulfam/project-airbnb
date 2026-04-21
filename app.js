@@ -120,8 +120,8 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(8080, () =>{
-    console.log("Server is listing to port 8080");
+app.listen(8000, () =>{
+    console.log("Server is listing to port 8000");
 
 });
 

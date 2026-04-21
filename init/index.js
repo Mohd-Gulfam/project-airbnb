@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
+require("dotenv").config({ path: "../.env" });
 
 
-const mongo_URL= "mongodb://127.0.0.1:27017/wanderlust"
+// const mongo_URL= "mongodb://127.0.0.1:27017/wanderlust"
+const mongo_URL = process.env.MONGO_ATLAS_URL; 
 
 main()
   .then(() => {
